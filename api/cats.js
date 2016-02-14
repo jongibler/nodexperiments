@@ -26,7 +26,11 @@ router.delete('/:id', function(req, res) {
 	Cat.remove({ _id : req.params.id }, function (err, cat) {
 		if (err)
 			res.status(500).send(err);
-		res.status(200).end();
+		Cat.find(function(err, cats) {
+			if (err)
+				res.status(500).send(err);
+			res.json(cats);
+		});
 	});
 });
 

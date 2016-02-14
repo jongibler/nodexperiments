@@ -7,8 +7,8 @@ var mongoose = require('mongoose');
 mongoose.connect('mongodb://dbuser:dbpassword@ds047114.mongolab.com:47114/experimental');
 
 //routes
-app.all('/', function (req, res) {
-  res.send('<img src="img/cats.jpg" /><br /><a href="/cats">Cats</a>');
+app.get('/', function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
 });
 app.get('/cats', function (req, res) {
   res.sendFile(__dirname + '/views/cats.html');
