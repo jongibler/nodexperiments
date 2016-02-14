@@ -22,4 +22,12 @@ router.post('/', function(req, res) {
 	});
 });
 
+router.delete('/:id', function(req, res) {
+	Cat.remove({ _id : req.params.id }, function (err, cat) {
+		if (err)
+			res.status(500).send(err);
+		res.status(200).end();
+	});
+});
+
 module.exports = router;

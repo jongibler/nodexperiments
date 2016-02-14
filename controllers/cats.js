@@ -19,6 +19,17 @@ angular.module('catsApp', [])
 			.error(function(data) {
 				console.log('Error:' + data)
 			});;
-	} 
+	};
+
+	$scope.delete = function(cat) {
+		$http.delete('/api/cats/' + cat._id)
+            .success(function(data) {
+                var deletedCatIndex = $scope.cats.indexOf(cat);
+                $scope.cats.splice(deletedCatIndex, 1);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+	};
 
   });
