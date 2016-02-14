@@ -11,9 +11,14 @@ angular.module('catsApp', [])
 	
 	$scope.saveNew = function(){
 		var newCat = { name : $scope.newCatName };
-		$http.post('api/cats', newCat);
-		//TODO: if succesfully added
-		$scope.cats.push(newCat); 
+		$http.post('api/cats', newCat)
+			.success(function(data){
+				$scope.cats.push(newCat); 
+				$scope.newCatName = '';
+			})
+			.error(function(data) {
+				console.log('Error:' + data)
+			});;
 	} 
 
   });
