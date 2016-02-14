@@ -14,7 +14,7 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {		
-	var kitty = new Cat({ "Name" : req.body.Name });	
+	var kitty = new Cat({ name : req.body.name });	
 	kitty.save(function (err) {
   		if (err)
 	  		res.status(500).send(err);

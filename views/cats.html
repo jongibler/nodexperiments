@@ -1,0 +1,19 @@
+<!doctype html>
+<html ng-app="catsApp">
+	<head>
+	    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+	    <script src="/controllers/cats.js"></script>	    
+  	</head>
+  	<body>
+  		<h1>Cats</h1>
+  		<div ng-controller="CatsController">
+  			<ul>
+  				<li ng-repeat="cat in cats">
+  					{{cat.name}}
+  				</li>
+  			</ul>
+  			New cat: <input type="text" ng-model="newCatName">
+  			<button ng-click="saveNew()">Save</button>
+  		</div>
+  	</body>  	
+</html>
